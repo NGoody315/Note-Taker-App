@@ -3,19 +3,15 @@ var path = require("path");
 var fs = require("fs")
 
 // Sets up the Express App
-// =============================================================
 var app = express();
 var PORT = process.env.PORT || 3000;
-
-// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
 // HTML Routes
-// =============================================================
 
-// Basic route that sends the user first to the AJAX Page
+// Basic route
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/index.html"));
   });
@@ -45,8 +41,8 @@ app.get("/", function (req, res) {
       })
     })
   });
-  
-  // Pull from db.json
+
+  // GET from db.json
   app.get("/api/notes", function (req, res) {
     fs.readFile(__dirname + "/db/db.json", 'utf8', function (error, data) {
       if (error) {
@@ -57,6 +53,7 @@ app.get("/", function (req, res) {
     })
   });
   
+  //DELETE requests
   app.delete("/api/notes/:id", function (req, res) {
     const noteId = JSON.parse(req.params.id)
     console.log(noteId)
