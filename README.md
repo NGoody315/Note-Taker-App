@@ -27,4 +27,4 @@ Unlicense
 ## <a name="question"/>Questions
 If you have any questions you can contact me through https://github.com/NGoody315 or send me an email at : nikki.goodridge@gmail.com.
 
-![Alt text]()
+![Note-Taker-App](images/Screenshot.png)
